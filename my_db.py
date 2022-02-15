@@ -16,18 +16,6 @@ def add_user(name, email, handle, password):
     return social_db.lastrowid
 
 
-def add_friend(user_id, friend_id):
-    """
-    Add a friend to a user's account.
-    """
-    sql = '''
-    INSERT INTO friends (user_id, friend_id)
-    VALUES (?, ?)
-    '''
-    social_db.execute(sql, (user_id, friend_id))
-    social_db.commit()
-
-
 def add_follower(user_id, follower_id):
     """
     Add a follower to a user's account.
