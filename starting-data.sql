@@ -614,4 +614,389 @@ VALUES (
         1,
         '2022-01-01 00:00:01'
     );
+INSERT INTO folows
+VALUES (
+        1,
+        1,
+        2,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        2,
+        1,
+        3,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        3,
+        1,
+        4,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        4,
+        1,
+        5,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        5,
+        1,
+        6,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        6,
+        1,
+        7,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        7,
+        1,
+        8,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        8,
+        1,
+        9,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        9,
+        1,
+        10,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        10,
+        1,
+        11,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        11,
+        1,
+        12,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        12,
+        1,
+        13,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        13,
+        1,
+        14,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        14,
+        1,
+        15,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        15,
+        1,
+        16,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        16,
+        1,
+        17,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        17,
+        1,
+        18,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        18,
+        1,
+        19,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        19,
+        1,
+        20,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        20,
+        1,
+        21,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        21,
+        1,
+        22,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        22,
+        1,
+        23,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        23,
+        1,
+        24,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        24,
+        1,
+        25,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        25,
+        1,
+        26,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        26,
+        2,
+        1,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        27,
+        2,
+        3,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        28,
+        2,
+        4,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        29,
+        2,
+        5,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        30,
+        2,
+        6,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        31,
+        2,
+        7,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        32,
+        2,
+        8,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        33,
+        2,
+        9,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        34,
+        2,
+        10,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        35,
+        2,
+        11,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        36,
+        2,
+        12,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        37,
+        2,
+        13,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        38,
+        2,
+        14,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        39,
+        2,
+        15,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        40,
+        2,
+        16,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        41,
+        2,
+        17,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        42,
+        2,
+        18,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        43,
+        2,
+        19,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        44,
+        2,
+        20,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        45,
+        2,
+        21,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        46,
+        2,
+        22,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        47,
+        2,
+        23,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        48,
+        2,
+        24,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        49,
+        2,
+        25,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        50,
+        2,
+        26,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        51,
+        3,
+        1,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        52,
+        3,
+        2,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        53,
+        3,
+        4,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        54,
+        3,
+        5,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        55,
+        3,
+        6,
+        '2022-01-01 00:00:01'
+    );
 COMMIT;
