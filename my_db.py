@@ -233,24 +233,6 @@ def get_post_id(user_id, content):
     return social_db.execute(sql, (user_id, content)).fetchone()[0]
 
 
-def login():
-    """
-    Login function.
-    """
-    username = input('Username: ')
-    password = input('Password: ')
-    user_id = get_user_id(username, password)
-    if user_id:
-        return display_feed(user_id)
-    else:
-        print('Invalid username or password.')
-        print('Creating account now')
-        name = input('Name: ')
-        email = input('Email: ')
-        add_user(name, email, username, password)
-        return display_feed(get_user_id(username, password))
-
-
 def main():
     """
     Main function.
