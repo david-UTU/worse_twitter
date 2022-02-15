@@ -1,4 +1,5 @@
-BEGIN TRANSACTION
+PRAGMA foreign_keys = ON;
+BEGIN TRANSACTION;
 INSERT INTO users
 VALUES (
         1,

@@ -1,4 +1,3 @@
-PRAGMA foreign_keys = ON;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -22,7 +21,7 @@ CREATE TABLE comments (
     user_id INTEGER NOT NULL,
     post_id INTEGER NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (user_id) REFERENCES users (name),
     FOREIGN KEY (post_id) REFERENCES posts (id)
 );
 CREATE TABLE follows (
@@ -30,6 +29,6 @@ CREATE TABLE follows (
     user_id INTEGER NOT NULL,
     follower_id INTEGER NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (user_id) REFERENCES users (name),
     FOREIGN KEY (follower_id) REFERENCES users (id)
 );
