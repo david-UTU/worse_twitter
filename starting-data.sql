@@ -1,176 +1,230 @@
-PRAGMA foreign_keys = ON;
 BEGIN TRANSACTION
 INSERT INTO users
 VALUES (
+        1,
         'Alice',
         'a@alice.com',
         'alice',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
-VALUES ('Bob', 'b@bob.com', 'bob', 'secret_password1234');
+VALUES (
+        2,
+        'Bob',
+        'b@bob.com',
+        'bob',
+        'secret_password1234',
+        '2020-01-01 00:00:00'
+    );
 INSERT INTO users
 VALUES (
+        3,
         'Charlie',
         'c@charlie.com',
         'charlie',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        4,
         'Dave',
         'd@dave.com',
         'dave',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES ('Eve', 'e@eve.com', 'eve', 'secret_password1234');
 INSERT INTO users
 VALUES (
+        5,
         'Frank',
         'f@reynolds.com',
         'frank',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        6,
         'Grace',
         'g@grace.com',
         'grace',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        7,
         'Heidi',
         'h@heidi.com',
         'heidi',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        8,
         'Irene',
         'i@irene.com',
         'irene',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        9,
         'Jack',
         'j@jack.com',
         'jack',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        10,
         'Karen',
         'k@karen.com',
         'karen',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        11,
         'Linda',
         'l@linda.com',
         'linda',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        12,
         'Mallory',
         'm@mallory.com',
         'mallory',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        13,
         'Nancy',
         'n@nancy.com',
         'nancy',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        14,
         'Oscar',
         'o@oscar.com',
         'oscar',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        15,
         'Peggy',
         'p@peggy.com',
         'peggy',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        16,
         'Quinn',
         'q@quinn.com',
         'quinn',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        17,
         'Ruth',
         'r@ruth.com',
         'ruth',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        18,
         'Sally',
         's@sally.com',
         'sally',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        19,
         'Tina',
         't@tina.com',
         'tina',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        20,
         'Ursula',
         'u@ursula.com',
         'ursula',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        21,
         'Vince',
         'v@vince.com',
         'vince',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        22,
         'Wendy',
         'w@wendy.com',
         'wendy',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        23,
         'Xavier',
         'x@xavier.com',
         'xavier',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        24,
         'Yvonne',
         'y@yvonne.com',
         'yvonne',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO users
 VALUES (
+        25,
         'Zachary',
         'z@zachary.com',
         'zachary',
-        'secret_password1234'
+        'secret_password1234',
+        '2020-01-01 00:00:00'
     );
 INSERT INTO posts
 VALUES (
@@ -614,7 +668,7 @@ VALUES (
         1,
         '2022-01-01 00:00:01'
     );
-INSERT INTO folows
+INSERT INTO follows
 VALUES (
         1,
         1,
