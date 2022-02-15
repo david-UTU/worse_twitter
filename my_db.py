@@ -292,22 +292,18 @@ def main():
             print('Your posts:')
             for post in display_user_posts(get_user_id(username, password)):
                 print('ID:', post[0])
-                print('User ID:', post[1])
                 print('Content:', post[2])
                 print('Created at:', post[3])
                 print('Name:', post[4])
                 print('Handle:', post[5])
-                print('Email:', post[6])
         elif choice == '3':
             print('Your feed:')
             for post in display_feed(get_user_id(username, password)):
                 print('ID:', post[0])
-                print('User ID:', post[1])
                 print('Content:', post[2])
                 print('Created at:', post[3])
                 print('Name:', post[4])
                 print('Handle:', post[5])
-                print('Email:', post[6])
         elif choice == '4':
             print('Your followers:')
             for user in display_followers(get_user_id(username, password)):
@@ -321,9 +317,6 @@ def main():
                 print('User ID:', post[1])
                 print('Content:', post[2])
                 print('Created at:', post[3])
-                print('Name:', post[4])
-                print('Handle:', post[5])
-                print('Email:', post[6])
         elif choice == '6':
             print('Your comments:')
             for comment in display_comments(get_post_id(username, content)):
@@ -331,9 +324,6 @@ def main():
                 print('User ID:', comment[1])
                 print('Content:', comment[2])
                 print('Created at:', comment[3])
-                print('Name:', comment[4])
-                print('Handle:', comment[5])
-                print('Email:', comment[6])
         elif choice == '7':
             post_id = get_post_id(username, content)
             like_post(get_user_id(username, password), post_id)
