@@ -36,10 +36,17 @@ VALUES (
         '2020-01-01 00:00:00'
     );
 INSERT INTO users
-VALUES ('Eve', 'e@eve.com', 'eve', 'secret_password1234');
-INSERT INTO users
 VALUES (
         5,
+        'Eve',
+        'e@eve.com',
+        'eve',
+        'secret_password1234',
+        '2020-01-01 00:00:00'
+    );
+INSERT INTO users
+VALUES (
+        6,
         'Frank',
         'f@reynolds.com',
         'frank',
@@ -48,7 +55,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        6,
+        7,
         'Grace',
         'g@grace.com',
         'grace',
@@ -57,7 +64,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        7,
+        8,
         'Heidi',
         'h@heidi.com',
         'heidi',
@@ -66,7 +73,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        8,
+        9,
         'Irene',
         'i@irene.com',
         'irene',
@@ -75,7 +82,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        9,
+        10,
         'Jack',
         'j@jack.com',
         'jack',
@@ -84,7 +91,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        10,
+        11,
         'Karen',
         'k@karen.com',
         'karen',
@@ -93,7 +100,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        11,
+        12,
         'Linda',
         'l@linda.com',
         'linda',
@@ -102,7 +109,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        12,
+        13,
         'Mallory',
         'm@mallory.com',
         'mallory',
@@ -111,7 +118,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        13,
+        14,
         'Nancy',
         'n@nancy.com',
         'nancy',
@@ -120,7 +127,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        14,
+        15,
         'Oscar',
         'o@oscar.com',
         'oscar',
@@ -129,7 +136,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        15,
+        16,
         'Peggy',
         'p@peggy.com',
         'peggy',
@@ -138,7 +145,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        16,
+        17,
         'Quinn',
         'q@quinn.com',
         'quinn',
@@ -147,7 +154,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        17,
+        18,
         'Ruth',
         'r@ruth.com',
         'ruth',
@@ -156,7 +163,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        18,
+        19,
         'Sally',
         's@sally.com',
         'sally',
@@ -165,7 +172,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        19,
+        20,
         'Tina',
         't@tina.com',
         'tina',
@@ -174,7 +181,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        20,
+        21,
         'Ursula',
         'u@ursula.com',
         'ursula',
@@ -183,7 +190,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        21,
+        22,
         'Vince',
         'v@vince.com',
         'vince',
@@ -192,7 +199,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        22,
+        23,
         'Wendy',
         'w@wendy.com',
         'wendy',
@@ -201,7 +208,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        23,
+        24,
         'Xavier',
         'x@xavier.com',
         'xavier',
@@ -210,7 +217,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        24,
+        25,
         'Yvonne',
         'y@yvonne.com',
         'yvonne',
@@ -219,7 +226,7 @@ VALUES (
     );
 INSERT INTO users
 VALUES (
-        25,
+        26,
         'Zachary',
         'z@zachary.com',
         'zachary',
@@ -792,265 +799,6 @@ VALUES (
         18,
         1,
         19,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        19,
-        1,
-        20,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        20,
-        1,
-        21,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        21,
-        1,
-        22,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        22,
-        1,
-        23,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        23,
-        1,
-        24,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        24,
-        1,
-        25,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        25,
-        1,
-        26,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        26,
-        2,
-        1,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        27,
-        2,
-        3,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        28,
-        2,
-        4,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        29,
-        2,
-        5,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        30,
-        2,
-        6,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        31,
-        2,
-        7,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        32,
-        2,
-        8,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        33,
-        2,
-        9,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        34,
-        2,
-        10,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        35,
-        2,
-        11,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        36,
-        2,
-        12,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        37,
-        2,
-        13,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        38,
-        2,
-        14,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        39,
-        2,
-        15,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        40,
-        2,
-        16,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        41,
-        2,
-        17,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        42,
-        2,
-        18,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        43,
-        2,
-        19,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        44,
-        2,
-        20,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        45,
-        2,
-        21,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        46,
-        2,
-        22,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        47,
-        2,
-        23,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        48,
-        2,
-        24,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        49,
-        2,
-        25,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        50,
-        2,
-        26,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        51,
-        3,
-        1,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        52,
-        3,
-        2,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        53,
-        3,
-        4,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        54,
-        3,
-        5,
-        '2022-01-01 00:00:01'
-    );
-INSERT INTO follows
-VALUES (
-        55,
-        3,
-        6,
         '2022-01-01 00:00:01'
     );
 COMMIT;
