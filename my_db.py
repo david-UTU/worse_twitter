@@ -345,7 +345,6 @@ def main():
                 print('Created at:', post[3])
                 print('Name:', post[4])
                 print('Handle:', post[5])
-                print('Email:', post[6])
         elif choice == '11':
             print('Controversial posts:')
             for post in switch_feed_controversial(get_user_id(username, password)):
@@ -355,7 +354,6 @@ def main():
                 print('Created at:', post[3])
                 print('Name:', post[4])
                 print('Handle:', post[5])
-                print('Email:', post[6])
         elif choice == '12':
             print('Goodbye!')
             return
