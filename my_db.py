@@ -178,16 +178,16 @@ def switch_feed_controversial(user_id):
     return social_db.execute(sql).fetchall()
 
 
-def get_user_id(username, password):
+def get_user_id(username):
     """
     Get user id from username and password.
     """
     sql = '''
     SELECT id
     FROM users
-    WHERE username = ? AND password = ?
+    WHERE username = ?
     '''
-    return social_db.execute(sql, (username, password)).fetchone()[0]
+    return social_db.execute(sql, (username,)).fetchone()[0]
 
 
 def get_post_id(user_id):
@@ -232,7 +232,7 @@ def main():
     all_users = better_users_list()
     print(all_users)
     if (username) in all_users:
-        user_id = get_user_id(username, password)
+        user_id = get_user_id(username)
         print(display_feed(user_id))
     else:
         print('Invalid username or password.')
@@ -244,7 +244,6 @@ def main():
         print("printing highest id" + str(highest_id))
         highest_id = highest_id + 1
         add_user(highest_id, name, email, username, password)
-        print(display_feed(get_user_id(username, password)))
     while True:
         print('What would you like to do?')
         print('1. Create a post')
@@ -261,35 +260,35 @@ def main():
         choice = input('Choice: ')
         if choice == '1':
             content = input('Content: ')
-            create_post(get_user_id(username, password), content, username)
+            create_post(get_user_id(username), content, username)
             print('Post created.')
         elif choice == '2':
             print('Your posts:')
-            for post in display_user_posts(get_user_id(username, password)):
+            for post in display_user_posts(get_user_id(username)):
                 print('Content:', post[2])
                 print('Created at:', post[3])
         elif choice == '3':
             print('Your feed:')
-            for post in display_feed(get_user_id(username, password)):
+            for post in display_feed(get_user_id(username)):
                 print('Post ID:', post[0])
                 print('Content:', post[1])
                 print('Created at:', post[2])
                 print('Poster Name:', post[3])
         elif choice == '4':
             print('Your follows:')
-            for user in display_follows(get_user_id(username, password)):
+            for user in display_follows(get_user_id(username)):
                 print('UserID: ', user[0])
                 print('Name: ', user[1])
                 print('Username: ', user[2])
         elif choice == '5':
             print('Your like count:')
-            print(display_likes(get_user_id(username, password))[0][0])
+            print(display_likes(get_user_id(username))[0][0])
             print('Your dislike count:')
-            print(display_dislikes(get_user_id(username, password))[0][0])
+            print(display_dislikes(get_user_id(username))[0][0])
         elif choice == '6':
             person = input(
                 'Who would you like to like? (enter their username) ')
-            like_post(get_user_id(person, password))
+            like_post(get_user_id(person))
             print('Liked post.')
         elif choice == '7':
             person = input(
@@ -298,7 +297,7 @@ def main():
             print('Disliked post.')
         elif choice == '8':
             print('Oldest posts:')
-            for post in switch_feed_oldest(get_user_id(username, password)):
+            for post in switch_feed_oldest(get_user_id(username)):
                 print('User ID:', post[1])
                 print('Content:', post[2])
                 print('Created at:', post[3])
@@ -306,7 +305,7 @@ def main():
                 print('username:', post[5])
         elif choice == '9':
             print('Controversial posts:')
-            for post in switch_feed_controversial(get_user_id(username, password)):
+            for post in switch_feed_controversial(get_user_id(username)):
                 print('User ID:', post[1])
                 print('Content:', post[2])
                 print('Created at:', post[3])
@@ -315,8 +314,8 @@ def main():
         elif choice == '10':
             person = input(
                 'Who would you like to follow? (enter their username) ')
-            add_follower(get_user_id(username, password),
-                         get_user_id(person, password))
+            add_follower(get_user_id(username),
+                         get_user_id(person))
             print('Followed user.')
         elif choice == '11':
             print('Goodbye!')
