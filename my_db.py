@@ -20,7 +20,7 @@ def add_user(highest_id, name, email, username, password):
     Create a user account.
     """
     sql = '''
-    INSERT INTO users (id, name, email, username, password)
+    INSERT OR REPLACE INTO users (id, name, email, username, password)
     VALUES (?, ?, ?, ?, ?)
     '''
     social_db.execute(sql, (highest_id, name, email, username, password))
@@ -32,7 +32,7 @@ def add_follower(user_id, follower_id):
     Add a follower to a user's account.
     """
     sql = '''
-    INSERT INTO follows (user_id, follower_id)
+    INSERT OR REPLACE INTO follows (user_id, follower_id)
     VALUES (?, ?)
     '''
     social_db.execute(sql, (user_id, follower_id))
@@ -154,12 +154,12 @@ def switch_feed_oldest(user_id):
     WHERE posts.id IN (
         SELECT id
         FROM posts
-        WHERE user_id = ?
+        WHERE id = ?
     )
     OR posts.id IN (
         SELECT follower_id
         FROM follows
-        WHERE user_id = ?
+        WHERE id = ?
     )
     ORDER BY posts.created_at ASC
     '''
@@ -186,7 +186,7 @@ def switch_feed_controversial(user_id):
     Switch to a controversial feed.
     """
     sql = '''
-    SELECT id, user_id, content, created_at, likes, dislikes
+    SELECT id, username, content, created_at, likes, dislikes
     FROM posts
     ORDER BY likes + dislikes DESC
     '''
