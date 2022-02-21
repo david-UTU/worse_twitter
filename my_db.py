@@ -3,15 +3,27 @@ import sqlite3
 social_db = sqlite3.connect('social.db')
 
 
-def add_user(name, email, username, password):
+def get_highest_id():
+    """
+    Get the highest id from the users table.
+    """
+    sql = '''
+    SELECT id
+    FROM users
+    ORDER BY id DESC
+    '''
+    return social_db.execute(sql).fetchone()[0]
+
+
+def add_user(highest_id, name, email, username, password):
     """
     Create a user account.
     """
     sql = '''
-    INSERT INTO users (name, email, username, password)
-    VALUES (?, ?, ?, ?)
+    INSERT INTO users (id, name, email, username, password)
+    VALUES (?, ?, ?, ?, ?)
     '''
-    social_db.execute(sql, (name, email, username, password))
+    social_db.execute(sql, (highest_id, name, email, username, password))
     social_db.commit()
 
 
@@ -40,16 +52,15 @@ def display_follows(user_id):
     return social_db.execute(sql, (user_id,)).fetchall()
 
 
-def create_post(user_id, content):
+def create_post(id, content, username):
     """
     Create a post for a user.
     """
     sql = '''
-    UPDATE posts
-    SET content = ?
-    WHERE user_id = ?
+    INSERT INTO posts (id, content, username)
+    VALUES (?, ?, ?)
     '''
-    social_db.execute(sql, (content, user_id))
+    social_db.execute(sql, (id, content, username))
     social_db.commit()
 
 
@@ -58,10 +69,10 @@ def display_user_posts(user_id):
     Display the posts for a user.
     """
     sql = '''
-    SELECT posts.id, posts.user_id, posts.content, posts.created_at, users.name, users.username, users.email
+    SELECT posts.id, posts.id, posts.content, posts.created_at, users.name, users.username, users.email
     FROM posts
-    JOIN users ON posts.user_id = users.id
-    WHERE posts.user_id = ?
+    JOIN users ON posts.id = users.id
+    WHERE posts.id = ?
     ORDER BY posts.created_at DESC
     '''
     return social_db.execute(sql, (user_id,)).fetchall()
@@ -74,7 +85,7 @@ def display_likes(user_id):
     sql = '''
     SELECT likes
     FROM posts
-    WHERE user_id = ?
+    WHERE id = ?
     '''
     return social_db.execute(sql, (user_id,)).fetchall()
 
@@ -86,7 +97,7 @@ def display_dislikes(user_id):
     sql = '''
     SELECT dislikes
     FROM posts
-    WHERE user_id = ?
+    WHERE id = ?
     '''
     return social_db.execute(sql, (user_id,)).fetchall()
 
@@ -98,7 +109,7 @@ def like_post(user_id):
     sql = '''
     UPDATE posts
     SET likes = likes + 1
-    WHERE user_id = ?
+    WHERE id = ?
     '''
     social_db.execute(sql, (user_id,))
     social_db.commit()
@@ -111,7 +122,7 @@ def dislike_post(user_id):
     sql = '''
     UPDATE posts
     SET dislikes = dislikes + 1
-    WHERE user_id = ?
+    WHERE id = ?
     '''
     social_db.execute(sql, (user_id,))
     social_db.commit()
@@ -122,23 +133,14 @@ def display_feed(user_id):
     Display the feed for a user.
     """
     sql = '''
-    SELECT posts.id, posts.user_id, posts.content, posts.created_at, users.name, users.username, users.email
+    SELECT posts.id, posts.content, posts.created_at, users.name, users.username, users.email
     FROM posts
-    JOIN users ON posts.user_id = users.id
-    WHERE posts.user_id IN (
-        SELECT id
-        FROM posts
-        WHERE user_id = ?
-    )
-    OR posts.user_id IN (
-        SELECT follower_id
-        FROM follows
-        WHERE user_id = ?
-    )
-    OR posts.user_id = ?
+    JOIN follows ON follows.follower_id = posts.id
+    JOIN users ON users.id = posts.id
+    WHERE follows.user_id = ?
     ORDER BY posts.created_at DESC
     '''
-    return social_db.execute(sql, (user_id, user_id, user_id)).fetchall()
+    return social_db.execute(sql, (user_id,)).fetchall()
 
 
 def switch_feed_oldest(user_id):
@@ -146,15 +148,15 @@ def switch_feed_oldest(user_id):
     Switch between feeds to prioritize oldest posts.
     """
     sql = '''
-    SELECT posts.id, posts.user_id, posts.content, posts.created_at, users.name, users.username, users.email
+    SELECT posts.id, posts.id, posts.content, posts.created_at, users.name, users.username, users.email
     FROM posts
-    JOIN users ON posts.user_id = users.id
-    WHERE posts.user_id IN (
+    JOIN users ON posts.id = users.id
+    WHERE posts.id IN (
         SELECT id
         FROM posts
         WHERE user_id = ?
     )
-    OR posts.user_id IN (
+    OR posts.id IN (
         SELECT follower_id
         FROM follows
         WHERE user_id = ?
@@ -200,6 +202,25 @@ def get_post_id(user_id):
     return social_db.execute(sql, (user_id,)).fetchone()[0]
 
 
+def users_list():
+    """
+    List all users.
+    """
+    sql = '''
+    SELECT username
+    FROM users
+    '''
+    return social_db.execute(sql).fetchall()
+
+
+def better_users_list():
+    user_list = users_list()
+    better_list = []
+    for user in user_list:
+        better_list.append(user[0])
+    return better_list
+
+
 def main():
     """
     Main function.
@@ -208,15 +229,21 @@ def main():
     print('Please log in or create an account.')
     username = input('Username: ')
     password = input('Password: ')
-    user_id = get_user_id(username, password)
-    if user_id:
+    all_users = better_users_list()
+    print(all_users)
+    if (username) in all_users:
+        user_id = get_user_id(username, password)
         print(display_feed(user_id))
     else:
         print('Invalid username or password.')
         print('Creating account now')
         name = input('Name: ')
         email = input('Email: ')
-        add_user(name, email, username, password)
+        highest_id = social_db.execute(
+            'SELECT MAX(id) FROM users').fetchone()[0]
+        print("printing highest id" + str(highest_id))
+        highest_id = highest_id + 1
+        add_user(highest_id, name, email, username, password)
         print(display_feed(get_user_id(username, password)))
     while True:
         print('What would you like to do?')
@@ -225,72 +252,73 @@ def main():
         print('3. View your feed')
         print('4. View your follows')
         print('5. View your likes')
-        print('7. Like a post')
-        print('8. Dislike a post')
-        print('10. Switch to oldest posts')
-        print('11. Switch to controversial posts')
-        print('12. Exit')
+        print('6. Like a post')
+        print('7. Dislike a post')
+        print('8. Switch to oldest posts')
+        print('9. Switch to controversial posts')
+        print('10. Follow a user')
+        print('11. Exit')
         choice = input('Choice: ')
         if choice == '1':
             content = input('Content: ')
-            create_post(get_user_id(username, password), content)
+            create_post(get_user_id(username, password), content, username)
             print('Post created.')
         elif choice == '2':
             print('Your posts:')
             for post in display_user_posts(get_user_id(username, password)):
-                print('ID:', post[1])
                 print('Content:', post[2])
                 print('Created at:', post[3])
-                print('Name:', post[4])
-                print('username:', post[5])
         elif choice == '3':
             print('Your feed:')
             for post in display_feed(get_user_id(username, password)):
-                print('ID:', post[0])
-                print('Content:', post[2])
-                print('Created at:', post[3])
-                print('Name:', post[4])
-                print('username:', post[5])
+                print('Post ID:', post[0])
+                print('Content:', post[1])
+                print('Created at:', post[2])
+                print('Poster Name:', post[3])
         elif choice == '4':
             print('Your follows:')
             for user in display_follows(get_user_id(username, password)):
-                print('Name:', user[0])
-                print('username:', user[1])
-                print('Email:', user[2])
+                print('UserID: ', user[0])
+                print('Name: ', user[1])
+                print('Username: ', user[2])
         elif choice == '5':
-            print('Your likes:')
-            print(display_likes(get_user_id(username, password)))
-            print('Your dislikes:')
-            print(display_dislikes(get_user_id(username, password)))
-        elif choice == '7':
+            print('Your like count:')
+            print(display_likes(get_user_id(username, password))[0][0])
+            print('Your dislike count:')
+            print(display_dislikes(get_user_id(username, password))[0][0])
+        elif choice == '6':
             person = input(
                 'Who would you like to like? (enter their username) ')
             like_post(get_user_id(person, password))
             print('Liked post.')
-        elif choice == '8':
+        elif choice == '7':
             person = input(
                 'Who would you like to dislike? (enter their username) ')
             dislike_post(get_user_id(person, password))
             print('Disliked post.')
-        elif choice == '10':
+        elif choice == '8':
             print('Oldest posts:')
             for post in switch_feed_oldest(get_user_id(username, password)):
-                print('ID:', post[0])
                 print('User ID:', post[1])
                 print('Content:', post[2])
                 print('Created at:', post[3])
                 print('Name:', post[4])
                 print('username:', post[5])
-        elif choice == '11':
+        elif choice == '9':
             print('Controversial posts:')
             for post in switch_feed_controversial(get_user_id(username, password)):
-                print('ID:', post[0])
                 print('User ID:', post[1])
                 print('Content:', post[2])
                 print('Created at:', post[3])
                 print('Name:', post[4])
                 print('username:', post[5])
-        elif choice == '12':
+        elif choice == '10':
+            person = input(
+                'Who would you like to follow? (enter their username) ')
+            add_follower(get_user_id(username, password),
+                         get_user_id(person, password))
+            print('Followed user.')
+        elif choice == '11':
             print('Goodbye!')
             return
 
