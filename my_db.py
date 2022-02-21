@@ -57,7 +57,7 @@ def create_post(id, content, username):
     Create a post for a user.
     """
     sql = '''
-    INSERT INTO posts (id, content, username)
+    INSERT OR REPLACE INTO posts (id, content, username)
     VALUES (?, ?, ?)
     '''
     social_db.execute(sql, (id, content, username))
@@ -166,6 +166,21 @@ def switch_feed_oldest(user_id):
     return social_db.execute(sql, (user_id, user_id)).fetchall()
 
 
+def display_feed_other(user_id):
+    """
+    Display the feed for a user.
+    """
+    sql = '''
+    SELECT posts.id, posts.content, posts.created_at, users.name, users.username, users.email
+    FROM posts
+    JOIN follows ON follows.follower_id = posts.id
+    JOIN users ON users.id = posts.id
+    WHERE follows.user_id = ?
+    ORDER BY posts.created_at DESC
+    '''
+    return social_db.execute(sql, (user_id,)).fetchall()
+
+
 def switch_feed_controversial(user_id):
     """
     Switch to a controversial feed.
@@ -256,7 +271,8 @@ def main():
         print('8. Switch to oldest posts')
         print('9. Switch to controversial posts')
         print('10. Follow a user')
-        print('11. Exit')
+        print('11. View a different user\'s feed')
+        print('12. Exit')
         choice = input('Choice: ')
         if choice == '1':
             content = input('Content: ')
@@ -318,6 +334,15 @@ def main():
                          get_user_id(person))
             print('Followed user.')
         elif choice == '11':
+            person = input(
+                'Who would you like to view? (enter their username) ')
+            print(f'{person}\'s Feed:')
+            for post in display_feed(get_user_id(person)):
+                print('Post ID:', post[0])
+                print('Content:', post[1])
+                print('Created at:', post[2])
+                print('Poster Name:', post[3])
+        elif choice == '12':
             print('Goodbye!')
             return
 

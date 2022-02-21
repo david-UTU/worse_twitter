@@ -360,4 +360,25 @@ VALUES (
         19,
         '2022-01-01 00:00:01'
     );
+INSERT INTO follows
+VALUES (
+        19,
+        2,
+        1,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        20,
+        2,
+        3,
+        '2022-01-01 00:00:01'
+    );
+INSERT INTO follows
+VALUES (
+        21,
+        2,
+        4,
+        '2022-01-01 00:00:01'
+    );
 COMMIT;
