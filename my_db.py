@@ -309,7 +309,7 @@ def main():
         elif choice == '7':
             person = input(
                 'Who would you like to dislike? (enter their username) ')
-            dislike_post(get_user_id(person, password))
+            dislike_post(get_user_id(person))
             print('Disliked post.')
         elif choice == '8':
             print('Oldest posts:')
@@ -322,11 +322,9 @@ def main():
         elif choice == '9':
             print('Controversial posts:')
             for post in switch_feed_controversial(get_user_id(username)):
-                print('User ID:', post[1])
+                print('User Name:', post[1])
                 print('Content:', post[2])
                 print('Created at:', post[3])
-                print('Name:', post[4])
-                print('username:', post[5])
         elif choice == '10':
             person = input(
                 'Who would you like to follow? (enter their username) ')
